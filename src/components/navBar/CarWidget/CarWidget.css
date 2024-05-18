@@ -1,0 +1,37 @@
+
+
+.CarWidget {
+    position: relative;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.car {
+    font-size: 45px;
+    padding-top: 20px;
+    padding-right: 15px; 
+    color: #b82f2e; 
+    margin: 0;
+}
+
+.not {
+    position: relative;
+    background-color: red;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+    top: -65px;
+    left: 30px;
+    margin: 0;
+}
+
+@media (min-width: 1200px) {
+    .car {
+        margin-top: 10px;
+    }
+}
