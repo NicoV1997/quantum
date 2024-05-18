@@ -40,13 +40,14 @@ a {
 
     .NavBar {
         width: 100vw;
+        height: 10vh;
     }
 
       .brandandname {
-        width: 20%;
-        height: 100%;
+        width: 15%;
+        height: 50%;
         margin-top: 15px;
-        margin-left: 10px;
+        margin-left: 100px;
     }
 
     .brand {
@@ -56,10 +57,11 @@ a {
     .categorys {
         width: 60%;
         display: flex;
-        margin-top: 15px;
+        margin-top: 7px;
         margin-right: 20%;
-        margin-left: 20%;
-        color: #b82f2e
+        margin-left: 10%;
+        color: #b82f2e;
+        justify-content: space-evenly;
     }
 
 

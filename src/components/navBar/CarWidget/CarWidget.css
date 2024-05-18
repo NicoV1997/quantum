@@ -1,5 +1,6 @@
 
 
+
 .CarWidget {
     position: relative;
     margin: 0;
@@ -7,8 +8,8 @@
 }
 
 .car {
-    font-size: 45px;
-    padding-top: 20px;
+    font-size: 30px;
+    padding-top: 15px;
     padding-right: 15px; 
     color: #b82f2e; 
     margin: 0;
@@ -25,9 +26,21 @@
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
-    top: -65px;
-    left: 30px;
+    top: -45px;
+    left: 15px;
     margin: 0;
+}
+
+@media (max-width: 431px) {
+    .car {
+        font-size: 50px;
+        padding-top: 20px;
+    }
+    
+    .not {
+        top: -60px;
+        left: 30px;
+    }
 }
 
 @media (min-width: 1200px) {
