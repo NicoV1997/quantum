@@ -4,7 +4,7 @@ a {
 }
 
 .NavBar {
-    background-color: white;
+    background-color: rgb(182, 182, 182);
     display: flex;
     justify-content: space-around; 
 }

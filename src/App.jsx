@@ -1,5 +1,6 @@
 import './App.css'
 import NavBar from './components/navBar/NavBar'
+import ItemListConteiner from './components/ItemListConteiner/ItemListConteiner'
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
     <NavBar />
+    <ItemListConteiner greeting="Bienvenidos a Quantum"/>
     </>
   )
 }
