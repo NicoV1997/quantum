@@ -1,6 +1,11 @@
 import React from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { getAllProducts } from "../../services/productsServices";
+
+//Bootstrap
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
+import { ItemCount } from "../ItemCount/ItemCount";
 
 
 
@@ -14,9 +19,10 @@ const ItemListConteiner = ({greeting}) => {
 
     const [products, setProducts] = useState([]) // Se pone un array vacio, por que products nos responde con un array, y tenemos que ser consecuentes.
 
-    useEffect(() => {
+    useEffect(() => {  
         getAllProducts().then((res) => {
-            setProducts( res.data.products)
+            setProducts( res.data.products);
+            console.log(res.data.products)
         }).catch((err) => {
             console.log(err)
         })
@@ -24,8 +30,18 @@ const ItemListConteiner = ({greeting}) => {
 
     return <div className="itemListConteiner">
         {products.map(product => {
-            return <></> 
-        })}
+            return (
+            <Card key={product.id} style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={product.thumbnail}/>
+            <Card.Body>
+              <Card.Title>{product.title}</Card.Title>
+              <Card.Text>
+                {product.description}
+              </Card.Text>
+              <ItemCount stock={10} initial={1} onAdd={(count) => alert(`Se agregaron ${count} productos al carrito`)}/>
+            </Card.Body>
+            </Card>
+        )})}
     </div>
 
 }
