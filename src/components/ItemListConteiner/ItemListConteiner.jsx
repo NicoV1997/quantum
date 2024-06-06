@@ -1,23 +1,27 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { getAllProducts } from "../../services/productsServices";
+import { ItemList } from "../ItemList/ItemList";
 
-//Bootstrap
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { ItemCount } from "../ItemCount/ItemCount";
 
 
 
 const ItemListConteiner = ({greeting}) => {
 
-    const customStyles = {
-        color: 'white',
-        fontSize: '2rem'
-    }
+    return <div>
+    <ItemList />
+    </div>
+}
+
+export default ItemListConteiner;
 
 
-    const [products, setProducts] = useState([]) // Se pone un array vacio, por que products nos responde con un array, y tenemos que ser consecuentes.
+
+
+
+
+
+
+
+    /* const [products, setProducts] = useState([]) // Se pone un array vacio, por que products nos responde con un array, y tenemos que ser consecuentes.
 
     useEffect(() => {  
         getAllProducts().then((res) => {
@@ -42,16 +46,7 @@ const ItemListConteiner = ({greeting}) => {
             </Card.Body>
             </Card>
         )})}
-    </div>
-
-}
-
-export default ItemListConteiner;
-
-
-
-
-
+    </div> */
 
 
 

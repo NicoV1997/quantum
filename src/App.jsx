@@ -1,9 +1,19 @@
 import './App.css'
-import NavBar from './components/navBar/NavBar'
-import ItemListConteiner from './components/ItemListConteiner/ItemListConteiner'
+import { MainRoutes } from './routes/MainRoutes'
 
 
 function App() {
+
+
+  return (    
+    <>
+    <MainRoutes />
+    </>
+  )
+}
+
+export default App
+
 
   /* const myPromise = new promise((resolve, reject) => {
     setTimeout(() => {  
@@ -21,13 +31,3 @@ function App() {
         }
       }, 3000)
     }); */
-
-  return (    
-    <>
-    <NavBar />
-    <ItemListConteiner greeting="Bienvenidos a Quantum"/>
-    </>
-  )
-}
-
-export default App

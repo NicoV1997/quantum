@@ -1,0 +1,24 @@
+.items{
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+}
+
+.item-box {
+    margin: 1rem;
+}
+
+@media (min-width: 431px) {
+
+.items{
+    display: flex;
+    margin: 1rem;
+    flex-direction: row ;
+}
+
+.item-box {
+    margin: 0.3rem;
+}
+
+}
+
