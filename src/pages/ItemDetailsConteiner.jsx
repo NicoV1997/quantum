@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import { ItemCount } from '../components/ItemCount/ItemCount';
 import { getProductsById } from '../services/productsServices';
+import Carousel from 'react-bootstrap/Carousel';
 
 
 
@@ -11,16 +12,27 @@ const ItemDetailsConteiner = () => {
   const [product, setProduct] = useState({})
 
   const {itemId} = useParams();
-
+ 
   useEffect(() => {
     getProductsById(itemId)
       .then((res) => {setProduct(res.data)})
       .catch((err) => {console.log(err)})
   }, [])
 
+
   return (
-      <Card key={product.id} style={{ width: '18rem', margin: '10px'}}>
-      <Card.Img variant="top" src={product.thumbnail}/>
+      <Card key={product.id} style={{ width: '25rem', margin: '10px'}}>
+                    <Carousel interval={2000}>
+                      <Carousel.Item>
+                        <img src={product.thumbnail} alt="Main" />
+                      </Carousel.Item>
+                      {product.images &&
+                        product.images.map((image, index) => (
+                          <Carousel.Item key={index}>
+                            <img src={image} alt={`Imagen ${index + 1}`}  style={{ maxWidth: '100vw', maxHeight: '400px', margin: 'auto' }}/>
+                          </Carousel.Item>
+                        ))}
+                    </Carousel>
       <Card.Body>   
         <Card.Title>{product.title}</Card.Title>
         <Card.Text>
@@ -55,3 +67,5 @@ export default ItemDetailsConteiner
             </Card>
         )})}
     </div> */}
+
+  
