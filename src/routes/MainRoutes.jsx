@@ -13,7 +13,7 @@ export const MainRoutes = () => {
         <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/item/:itemId" element={<ItemDetailsConteiner />} />
-            <Route path="/category/:categoryId" element={<Category />} />
+            <Route path="/category/:category" element={<Category />} />
         </Routes>
         </BrowserRouter>
     )
