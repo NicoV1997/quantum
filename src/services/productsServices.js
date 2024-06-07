@@ -1,10 +1,17 @@
 import axios from "axios";
 
-export const getAllProducts = () => {
+export async function getAllProducts () {
     return axios.get("https://dummyjson.com/products?limit=0");
 }
 
-export const getProductsById = (itemId) => {
+export async function getProductsById (itemId) {
     return axios.get(`https://dummyjson.com/products/${itemId}`)
 }
 
+export async function getProductsByCategory (category) {
+    return axios.get(`https://dummyjson.com/products/category/${category}`)
+}
+
+export async function getAllCategories () {
+    return axios.get('https://dummyjson.com/products/categories')
+}

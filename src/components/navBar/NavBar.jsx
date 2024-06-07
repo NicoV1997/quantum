@@ -1,8 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { getAllCategories } from '../../services/productsServices';
 
 const NavBar = () => {
+
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    getAllCategories()
+    .then((res) => {
+      return setCategories(res.data)
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  })
+
     return (
         <Navbar expand="lg" className="navbar navbar-dark bg-dark" style={{ width: '100vw' }}>
           <Container fluid>
@@ -16,14 +30,19 @@ const NavBar = () => {
                 <Nav.Link ><Link to='/' style={{color: 'grey', margin: 'auto'}}>Home</Link></Nav.Link>
                 <Nav.Link href="#action2">Link</Nav.Link>
                 <NavDropdown title="Categorias" id="navbarScrollingDropdown">
-                  <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                  <NavDropdown.Item href="#action4">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action5">
-                    Something else here
-                  </NavDropdown.Item>
+                  {categories.map((category) => {
+                    
+                    if (category.slug === 'smartphones' || 
+                      category.slug === 'tablets' || 
+                      category.slug === 'mobile-accessories' || 
+                      category.slug === 'laptops') {
+                        return (
+                          <NavDropdown.Item key={category.slug}>
+                            <Link to={`/category/${category.slug}`}>{category.name}</Link>
+                          </NavDropdown.Item>
+                        )
+                      }
+                  })}
                 </NavDropdown>
                 <Nav.Link href="#" disabled>
                   Link
