@@ -1,4 +1,4 @@
-import React from "react";
+/* import React from "react";
 import NavBar from './components/navBar/NavBar'
 import { Item } from "../Item/Item";
 
@@ -18,3 +18,4 @@ export const ItemDetail = ({Item}) => {
     )
 
 }
+ */

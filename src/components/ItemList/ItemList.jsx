@@ -2,6 +2,9 @@ import { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { ItemCount } from '../ItemCount/ItemCount';
 import { getAllProducts } from '../../services/productsServices';
+import "./ItemList.css";
+import { Link } from 'react-router-dom';
+
 
 export const ItemList = () => {
     const [products, setProducts] = useState([]); 
@@ -26,7 +29,7 @@ export const ItemList = () => {
       return <div>Cargando...</div>; // Necesito devolver un mensaje mientras tanto.
     }
     
-    return <div className="itemListConteiner">
+    return  <div className="itemListConteiner">
         {products.map(product => {
 
             if (product.category === 'smartphones' || 
@@ -34,10 +37,10 @@ export const ItemList = () => {
             product.category === 'mobile-accessories' || 
             product.category === 'laptops') {
             return (
-            <Card key={product.id} style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={product.thumbnail}/>
+            <Card key={product.id} style={{ width: '18rem', margin: '10px'}}>
+            <Link to={`/item/${product.id}`}><Card.Img variant="top" src={product.thumbnail}/></Link>
             <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
+              <Card.Title ><Link to={`/item/${product.id}`} style={{textDecoration: "none", color: "black"}}>{product.title}</Link></Card.Title>
               <Card.Text>
                 {product.description}
               </Card.Text>
@@ -47,19 +50,3 @@ export const ItemList = () => {
         )}})}
     </div>
 }
-
-
-        {/* <div className="items">
-            <div className="item-box">
-            <Item id= {1} title= "Teclado Razer Huntsman" description="Teclado óptico para Juegos con latencia de Entrada Casi Cero (interruptores óptico-mecánicos analógicos, Teclas PBT, Cable USB-C Desmontable)" price="112" picture="/images/RzerHuman.jpg" />
-            </div>
-            <div className="item-box">
-            <Item id= {2} title= "Teclado Roccat Vulcan" description="TKL Pro RGB, retroiluminación LED clave por tecla AIMO, interruptores ópticos de titanio, placa superior de aluminio, rueda multimedia" price="100" picture="/images/RocatVulcan.jpg" />
-            </div>
-            <div className="item-box">
-            <Item id= {3} title= "Teclado Mountain Everest" description="Gaming Tastatur - MX Blue, ANSI, US-Layout, Negro" price="90" picture="/images/MountainEverest.jpg" />
-            </div>
-            <div className="item-box">
-            <Item id= {4} title= "Teclado Corsair K95" description="RGB Platinum Teclado Mecánico Gaming, Cherry MX Brown, Táctil y Silencioso, Retroiluminación Multicolor LED RGB, Estructura de Aluminio Anodizado, QWERTY Español, color Negro" price="190" picture="/images/CorsairK95.jpg" />
-            </div>
-        </div> */}

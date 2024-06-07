@@ -21,25 +21,14 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
         }
     }
 
-    /* const onAdd = () => {
-        alert('Se agregaron ${count} al carrito')
-    } */
-
-    return <div>
+    return <div >
         <div className="secondary-buttons">
-        <button className="secondary-button" onClick={decrement} >-</button>
+        <button className="secondary-button" onClick={decrement} ><div className="text-agregar">-</div></button>
                 <div className="count">{count}</div>
-        <button className="secondary-button" onClick={increment} >+</button>
+        <button className="secondary-button" onClick={increment} ><div className="text-agregar">+</div></button>
         </div>
-        <button className="addButton" onClick={() => onAdd(count)}>Agregar al carrito</button>
+        <button className="addButton" onClick={() => onAdd(count)}>
+            <div className="text-agregar">Agregar al carrito</div>
+        </button>
     </div>
 }
-
-
-
-{/* <Button size="sm" onClick={decrement} >-</Button>
-                {count}
-           <Button size="sm" onClick={increment} >+</Button>
-           <Button variant="secondary" size="sm" onClick={() => onAdd(count)}>
-            Agregar al carrito
-            </Button> */}

@@ -1,24 +1,7 @@
-.items{
-    display: flex;
-    margin: 1rem;
-    flex-direction: column;
+@media (max-width = 431px) {
+    .itemListContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 }
-
-.item-box {
-    margin: 1rem;
-}
-
-@media (min-width: 431px) {
-
-.items{
-    display: flex;
-    margin: 1rem;
-    flex-direction: row ;
-}
-
-.item-box {
-    margin: 0.3rem;
-}
-
-}
-

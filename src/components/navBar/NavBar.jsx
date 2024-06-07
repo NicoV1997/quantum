@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
@@ -12,9 +13,9 @@ const NavBar = () => {
                 className="me-auto my-2 my-lg-0"
                 navbarScroll
               >
-                <Nav.Link href="#action1">Home</Nav.Link>
+                <Nav.Link ><Link to='/' style={{color: 'grey', margin: 'auto'}}>Home</Link></Nav.Link>
                 <Nav.Link href="#action2">Link</Nav.Link>
-                <NavDropdown title="Link" id="navbarScrollingDropdown">
+                <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                   <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
                   <NavDropdown.Item href="#action4">
                     Another action

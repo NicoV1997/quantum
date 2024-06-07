@@ -8,7 +8,7 @@ const Home = () => {
     }, [])
 
   return (
-    <div>
+    <div >
         <ItemListConteiner />
     </div>
   )
