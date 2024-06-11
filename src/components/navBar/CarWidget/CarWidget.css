@@ -1,22 +1,21 @@
-
-
-
 .CarWidget {
     position: relative;
     margin: 0;
     margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .car {
-    font-size: 30px;
-    padding-top: 15px;
-    padding-right: 15px; 
+    font-size: 2.5rem;
     color: #b82f2e; 
     margin: 0;
+    line-height: 1; /* Asegura que el icono esté centrado verticalmente */
 }
 
 .not {
-    position: relative;
+    position: absolute; /* Cambio a absolute para posicionar relativo a .CarWidget */
     background-color: red;
     width: 1.2rem;
     height: 1.2rem;
@@ -26,25 +25,25 @@
     justify-content: center;
     align-items: center;
     font-size: 0.8rem;
-    top: -45px;
-    left: 15px;
+    top: 5px; /* Ajusta según sea necesario para centrar la notificación */
+    right: 10px; /* Asegura que la notificación esté posicionada correctamente */
     margin: 0;
 }
 
 @media (max-width: 431px) {
     .car {
-        font-size: 50px;
-        padding-top: 20px;
+        font-size: 2rem;
+        padding-top: 0.2rem;
     }
     
     .not {
-        top: -60px;
-        left: 30px;
+        top: -10px; /* Ajusta según sea necesario para centrar la notificación en pantallas pequeñas */
+        right: -10px; /* Ajusta según sea necesario para centrar la notificación en pantallas pequeñas */
     }
 }
 
 @media (min-width: 1200px) {
     .car {
-        margin-top: 10px;
+        margin-top: 0; /* Elimina margin-top para asegurar centrado vertical */
     }
 }

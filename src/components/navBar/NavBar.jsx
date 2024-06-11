@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getAllCategories } from '../../services/productsServices';
+import CarWidget from './CarWidget/CarWidget';
 
 const NavBar = () => {
 
@@ -28,7 +29,6 @@ const NavBar = () => {
                 navbarScroll
               >
                 <Nav.Link ><Link to='/' style={{color: 'grey', margin: 'auto'}}>Home</Link></Nav.Link>
-                <Nav.Link href="#action2">Link</Nav.Link>
                 <NavDropdown title="Categorias" id="navbarScrollingDropdown">
                   {categories.map((category) => {
                     
@@ -48,15 +48,7 @@ const NavBar = () => {
                   Link
                 </Nav.Link>
               </Nav>
-              <Form className="d-flex">
-                <FormControl
-                  type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
-                />
-                <Button variant="outline-success">Search</Button>
-              </Form>
+              <CarWidget />
             </Navbar.Collapse>
           </Container>
         </Navbar>
@@ -68,4 +60,12 @@ export default NavBar;
 // navegabilidad
 
         
-        
+{/* <Form className="d-flex">
+<FormControl
+  type="search"
+  placeholder="Search"
+  className="me-2"
+  aria-label="Search"
+/>
+<Button variant="outline-success">Search</Button>
+</Form> */}

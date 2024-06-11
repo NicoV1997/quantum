@@ -44,7 +44,11 @@ export const ItemList = () => {
               <Card.Text>
                 {product.description}
               </Card.Text>
-              <ItemCount stock={10} initial={1} onAdd={(count) => alert(`Se agregaron ${count} productos al carrito`)}/>
+              <Link to={`/item/${product.id}`}>
+                <button className="addButton">
+                <div className="text-agregar">Ir al detalle</div>
+                </button>
+              </Link>
             </Card.Body>
             </Card>
         )}})}

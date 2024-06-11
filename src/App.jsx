@@ -1,14 +1,15 @@
 import './App.css'
-import { MainRoutes } from './routes/MainRoutes'
+import { MainRoutes } from './routes/MainRoutes';
+import { CartProvider } from './context/CartContext';  
 
 
 function App() {
 
 
   return (    
-    <>
-    <MainRoutes />
-    </>
+    <CartProvider>
+      <MainRoutes />
+    </CartProvider>
   )
 }
 

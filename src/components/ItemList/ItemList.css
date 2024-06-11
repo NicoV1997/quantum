@@ -1,7 +1,37 @@
-@media (max-width = 431px) {
-    .itemListContainer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+.addButton {
+    color: red;
+    width: 12rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente */
+    font-size: 1rem;         /* Ajusta el tamaño de la fuente */
+    margin: 0 auto;          /* Centra el botón en su contenedor */
+}
+
+.text-agregar {
+    width: 100%;
+    font-size: 1rem;
+    text-align: center; /* Centra el texto dentro del botón */
+}
+
+.itemListConteiner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.itemListConteiner > .card {
+    display: flex;/* Ajusta el ancho de cada tarjeta */
+    margin: 1%;
+}
+
+@media (max-width: 431px) {
+    .itemListConteiner {
+        flex-direction: row;
+    }
+    .itemListConteiner > .card {
+        flex: 0 0 48%; /* Ajusta el ancho de cada tarjeta para que ocupen aproximadamente la mitad del contenedor */
+        margin: 1%;
     }
 }

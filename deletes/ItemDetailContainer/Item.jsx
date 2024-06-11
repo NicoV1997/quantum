@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+/* import { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import ItemCount from './ItemCount'; // Asegúrate de importar correctamente tus componentes
 import getAllProducts from './productServices'; // Asegúrate de importar correctamente tu servicio
@@ -41,5 +41,5 @@ export const Component = () => {
             </Card>
         )})}
     </div>
-}
+} */
 
