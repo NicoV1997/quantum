@@ -7,11 +7,12 @@ import { CartContext } from '../../../context/CartContext';
 const CarWidget = () => {
 
     const {cart} = useContext(CartContext)
-    /* const totalItems = cart.reduce((total, item) => {
+    const totalItems = cart.reduce((total, item) => {
         total + item.quantity, 0
-    }) */
+    })
 
-    
+    console.log(cart)
+
     return (
         <div className="carwidget">
         <a href=""><div className="material-icons car" >
