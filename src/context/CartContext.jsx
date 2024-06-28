@@ -24,9 +24,6 @@ export const CartProvider = ({ children }) => { // Aca iran los estados que prec
             }
         });
     };
-
-    console.log(cart)
-
     
     const reduceCart = (product, quantity) => {
         setCart((prevCart) => {
@@ -44,10 +41,11 @@ export const CartProvider = ({ children }) => { // Aca iran los estados que prec
         });
       };
 
-      console.log(cart)
+      const totalItems = cart.length === 0 ? 0 : cart.reduce((total, item) => total + item.quantity, 0);
+
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, reduceCart }}> 
+        <CartContext.Provider value={{ cart, addToCart, reduceCart, totalItems }}> 
             {children}
         </CartContext.Provider>
     );

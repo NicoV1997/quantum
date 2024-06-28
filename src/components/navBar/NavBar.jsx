@@ -16,12 +16,12 @@ const NavBar = () => {
     .catch((err) => {
       console.log(err)
     })
-  })
+  }, [])
 
     return (
         <Navbar expand="lg" className="navbar navbar-dark bg-dark" style={{ width: '100vw' }}>
           <Container fluid>
-            <Navbar.Brand href="#"><img src="/images/brandandname.png" alt="" style={{ width: '10rem'}}/></Navbar.Brand>
+            <Navbar.Brand href="/"><img src="/images/brandandname.png" alt="" style={{ width: '10rem'}}/></Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav

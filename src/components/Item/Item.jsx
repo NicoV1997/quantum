@@ -15,7 +15,7 @@ export const Item = ({product}) => {
   const { addToCart, reduceCart } = useContext(CartContext)
   const [quantity, setQuantity] = useState(0);
 
-  const handleAdd = () => {
+  const handleAdd = () => { // esto es un actualizador local, de cada producto individual.
     setQuantity (quantity + 1)
     addToCart(product, 1);
   }
