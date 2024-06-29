@@ -41,11 +41,17 @@ export const CartProvider = ({ children }) => { // Aca iran los estados que prec
         });
       };
 
+      const deleteFromCart = (product) => { // este codigo nos sirve para eliminar de la pagina del carrito el producto al que toquemos eliminar. 
+        setCart((prevCart) => {
+          return prevCart.filter((item) => item.id !== product.id);
+        });
+      }
+
       const totalItems = cart.length === 0 ? 0 : cart.reduce((total, item) => total + item.quantity, 0);
 
 
     return (
-        <CartContext.Provider value={{ cart, addToCart, reduceCart, totalItems }}> 
+        <CartContext.Provider value={{ cart, addToCart, reduceCart, totalItems, deleteFromCart}}> 
             {children}
         </CartContext.Provider>
     );

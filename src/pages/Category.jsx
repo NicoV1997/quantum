@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ItemCount } from '../components/ItemCount/ItemCount';
 import { getProductsByCategory } from '../services/productsServices';
 import { useParams } from 'react-router-dom';
+import LoaderComponent from '../components/LoaderComponent/LoaderComponent';
 
 
 const Category = () => {
@@ -29,7 +30,7 @@ const Category = () => {
 
   
     if (loading) {
-      return <div>Cargando...</div>; // Necesito devolver un mensaje mientras tanto.
+      return <LoaderComponent /> // Necesito devolver un mensaje mientras tanto.
     }
     
     return  <div className="itemListConteiner">

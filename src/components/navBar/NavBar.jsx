@@ -21,7 +21,7 @@ const NavBar = () => {
     return (
         <Navbar expand="lg" className="navbar navbar-dark bg-dark" style={{ width: '100vw' }}>
           <Container fluid>
-            <Navbar.Brand href="/"><img src="/images/brandandname.png" alt="" style={{ width: '10rem'}}/></Navbar.Brand>
+            <Nav.Link ><Link to='/'><img src="/images/brandandname.png" alt="" style={{ width: '10rem'}}/></Link></Nav.Link>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav

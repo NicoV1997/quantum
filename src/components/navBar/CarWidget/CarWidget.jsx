@@ -1,6 +1,7 @@
 import './CarWidget.css'
 import { useContext } from 'react';
 import { CartContext } from '../../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -12,13 +13,13 @@ const CarWidget = () => {
 
     return (
         <div className="carwidget">
-        <a href=""><div className="material-icons car" >
+        <Link to='/cart'><div className="material-icons car" >
         shopping_cart
         </div>
         <p className='not'>
             {totalItems}
         </p>
-        </a>
+        </Link>
         </div>
     )
 

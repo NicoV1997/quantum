@@ -4,6 +4,7 @@ import { ItemCount } from '../ItemCount/ItemCount';
 import { getAllProducts } from '../../services/productsServices';
 import "./ItemList.css";
 import { Link } from 'react-router-dom';
+import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 
 export const ItemList = () => {
@@ -26,7 +27,7 @@ export const ItemList = () => {
     }, []); // Dependencias vacías para ejecutar una vez al montar el componente
   
     if (loading) {
-      return <div>Cargando...</div>; // Necesito devolver un mensaje mientras tanto.
+      return <LoaderComponent />
     }
     
     return  <div className="itemListConteiner">

@@ -3,45 +3,71 @@ import { useParams } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
 import { CartContext } from '../../context/CartContext';
-import '../ItemCount/ItemCount.css'
+import '../ItemCount/ItemCount.css';
+import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
 
 
 
-export const Item = ({product}) => {
+      export const Item = ({product}) => {
+        const [loading, setLoading] = useState(true);
+        const { addToCart, reduceCart } = useContext(CartContext)
+        const [quantity, setQuantity] = useState(0);
+        
+          useEffect(() => {
+            setTimeout(() => {
+              if (product) {
+                  setLoading(false); 
+                } else {
+                  setLoading(false); 
+                }
+            }, 1500); // Pausa de 2 segundos como se pide en el trabajo
+          }, []); // Dependencias vacías para ejecutar una vez al montar el componente
+        
+          if (loading) {
+            return <LoaderComponent /> // Necesito devolver un mensaje mientras tanto.
+          }
 
-  // ESTADO DEL CARRITO//////////////////////////////
+        // ESTADO DEL CARRITO//////////////////////////////
+        const handleAdd = () => { // esto es un actualizador local, de cada producto individual.
+          setQuantity (quantity + 1)
+          addToCart(product, 1);
+        }
 
-  const { addToCart, reduceCart } = useContext(CartContext)
-  const [quantity, setQuantity] = useState(0);
+        const handleReduce = () => {
+          setQuantity (quantity - 1)
+          reduceCart(product, 1);
+        }
 
-  const handleAdd = () => { // esto es un actualizador local, de cada producto individual.
-    setQuantity (quantity + 1)
-    addToCart(product, 1);
-  }
+        // ESTADO DEL CARRITO//////////////////////////////
 
-  const handleReduce = () => {
-    setQuantity (quantity - 1)
-    reduceCart(product, 1);
-  }
-
-  // ESTADO DEL CARRITO//////////////////////////////
-
-  return (
-      <Card key={product.id} style={{ width: '25rem', margin: '10px'}}>
-                    <Carousel interval={2000}>
-                      <Carousel.Item>
-                        <img src={product.thumbnail} alt="Main" />
-                      </Carousel.Item>
-                      {product.images &&
-                        product.images.map((image, index) => (
-                          <Carousel.Item key={index}>
-                            <img src={image} alt={`Imagen ${index + 1}`}  style={{ maxWidth: '100vw', maxHeight: '400px', margin: 'auto' }}/>
-                          </Carousel.Item>
-                        ))}
-                    </Carousel>
+        return (
+          <Card key={product.id} style={{ margin: '10px', width: '100%', display: 'flex', flexDirection: 'row' }}>
+          <Carousel interval={2000} style={{ width: '60%' }}>
+            <Carousel.Item>
+              <img
+                src={product.thumbnail}
+                alt="Main"
+                style={{ maxWidth: '100%', height: '30%', objectFit: 'contain', display: 'block', margin: 'auto' }}
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                src={product.thumbnail2}
+                alt="Second"
+                style={{ maxWidth: '100%', height: '30%', objectFit: 'contain', display: 'block', margin: 'auto' }}
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                src={product.thumbnail3}
+                alt="Third"
+                style={{ maxWidth: '100%', height: '30%', objectFit: 'contain', display: 'block', margin: 'auto' }}
+              />
+            </Carousel.Item>
+          </Carousel>
       <Card.Body>   
-        <Card.Title>{product.title}</Card.Title>
+        <Card.Title><div style={{fontSize: '40px'}}>{product.name}</div></Card.Title>
         <Card.Text>
           {product.description}
         </Card.Text>

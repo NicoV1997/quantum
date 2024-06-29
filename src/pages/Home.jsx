@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react'
 import ItemListConteiner from '../components/ItemListConteiner/ItemListConteiner'
+import { useProducts } from '../components/hooks/useProducts'
+
 
 const Home = () => {
+    const { products } = useProducts();
 
     useEffect(() => {
         document.title = "Home"
@@ -9,7 +12,7 @@ const Home = () => {
 
   return (
     <div >
-        <ItemListConteiner />
+        <ItemListConteiner products={products}/>
     </div>
   )
 }
