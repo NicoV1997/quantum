@@ -37,8 +37,8 @@
     }
     
     .not {
-        top: -10px; /* Ajusta según sea necesario para centrar la notificación en pantallas pequeñas */
-        right: -10px; /* Ajusta según sea necesario para centrar la notificación en pantallas pequeñas */
+        top: 11rem; /* Ajusta según sea necesario para centrar la notificación en pantallas pequeñas */
+        right: 23rem; /* Ajusta según sea necesario para centrar la notificación en pantallas pequeñas */
     }
 }
 

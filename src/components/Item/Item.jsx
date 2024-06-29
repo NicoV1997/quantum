@@ -41,54 +41,62 @@ import LoaderComponent from '../LoaderComponent/LoaderComponent';
 
         // ESTADO DEL CARRITO//////////////////////////////
 
-        return (
-          <Card key={product.id} style={{ margin: '10px', width: '100%', display: 'flex', flexDirection: 'row' }}>
-          <Carousel interval={2000} style={{ width: '60%' }}>
-            <Carousel.Item>
-              <img
-                src={product.thumbnail}
-                alt="Main"
-                style={{ maxWidth: '100%', height: '30%', objectFit: 'contain', display: 'block', margin: 'auto' }}
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                src={product.thumbnail2}
-                alt="Second"
-                style={{ maxWidth: '100%', height: '30%', objectFit: 'contain', display: 'block', margin: 'auto' }}
-              />
-            </Carousel.Item>
-            <Carousel.Item>
-              <img
-                src={product.thumbnail3}
-                alt="Third"
-                style={{ maxWidth: '100%', height: '30%', objectFit: 'contain', display: 'block', margin: 'auto' }}
-              />
-            </Carousel.Item>
-          </Carousel>
-      <Card.Body>   
-        <Card.Title><div style={{fontSize: '40px'}}>{product.name}</div></Card.Title>
-        <Card.Text>
-          {product.description}
-        </Card.Text>
-        <Card.Text>
-          Precio: {product.price}
-        </Card.Text>
-        <Card.Text>
-          Rating: {product.rating}
-        </Card.Text>
-        {/* <ItemCount stock={10} initial={1} onAdd={(count) => alert(`Se agregaron ${count} productos al carrito`)}/> */}
-        <div >
-        <div className="secondary-buttons">
-        <button className="secondary-button" onClick={handleReduce} ><div className="text-agregar">-</div></button>
-                <div className="count">{quantity}</div>
-        <button className="secondary-button" onClick={handleAdd} ><div className="text-agregar">+</div></button>
-        </div>
-        <button className="addButton" onClick={() => onAdd(count)}>
-            <div className="text-agregar">Agregar al carrito</div>
-        </button>
-    </div>
-      </Card.Body>
+        const isSmallScreen = window.innerWidth <= 510;
+        const cardStyle = {
+          margin: '10px',
+          width: '95vw',
+          display: 'flex',
+          flexDirection: isSmallScreen ? 'column' : 'row',
+        };
+
+    return (
+      <Card key={product.id} style={cardStyle}>
+        <Carousel interval={2000} style={{ width: isSmallScreen ? '100%' : '60%' }}>
+          <Carousel.Item>
+            <img
+              src={product.thumbnail}
+              alt="Main"
+              style={{ maxWidth: '100vw', height: '30vh', objectFit: 'contain', display: 'block', margin: 'auto' }}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src={product.thumbnail2}
+              alt="Second"
+              style={{ maxWidth: '100vw', height: '30vh', objectFit: 'contain', display: 'block', margin: 'auto' }}
+            />
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              src={product.thumbnail3}
+              alt="Third"
+              style={{ maxWidth: '100vw', height: '30vh', objectFit: 'contain', display: 'block', margin: 'auto' }}
+            />
+          </Carousel.Item>
+        </Carousel>
+        <Card.Body>
+          <Card.Title><div style={{ fontSize: '40px' }}>{product.name}</div></Card.Title>
+          <Card.Text>
+            {product.description}
+          </Card.Text>
+          <Card.Text>
+            Precio: {product.price}
+          </Card.Text>
+          <Card.Text>
+            Rating: {product.rating}
+          </Card.Text>
+          {/* <ItemCount stock={10} initial={1} onAdd={(count) => alert(`Se agregaron ${count} productos al carrito`)}/> */}
+          <div>
+            <div className="secondary-buttons">
+              <button className="secondary-button" onClick={handleReduce}><div className="text-agregar">-</div></button>
+              <div className="count">{quantity}</div>
+              <button className="secondary-button" onClick={handleAdd}><div className="text-agregar">+</div></button>
+            </div>
+            <button className="addButton" onClick={() => onAdd(quantity)}>
+              <div className="text-agregar">Agregar al carrito</div>
+            </button>
+          </div>
+        </Card.Body>
       </Card>
-  )
-}
+    );
+  }

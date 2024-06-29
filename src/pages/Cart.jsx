@@ -49,7 +49,8 @@ const Cart = () => {
                   padding: "10px",
                 }}
               >
-                <h3>{item.title}</h3>
+                <img src={item.thumbnail} alt="main" style={{maxWidth: '20vw', maxHeight: '20vh'}}/>
+                <h3>{item.name}</h3>
                 <p>{item.description}</p>
                 <p>Precio unitario: ${item.price}</p>
                 <p>Cantidad: {item.quantity}</p>
