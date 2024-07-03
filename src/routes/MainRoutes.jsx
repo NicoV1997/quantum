@@ -6,6 +6,7 @@ import NavBar from '../components/navBar/NavBar';
 import Category from "../pages/Category";
 import Cart from "../pages/Cart";
 
+
 export const MainRoutes = () => {
     return (
         <BrowserRouter>

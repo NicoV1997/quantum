@@ -12,7 +12,11 @@ const Home = () => {
 
   return (
     <div >
+        <img src="/images/quantumBanner.png" alt="banner" style={{maxWidth: '100%', marginTop: '0.5rem'}}/>
+        <div>
+          <h3 style={{marginLeft: '1rem', marginTop: '1rem', marginBottom: '1rem'}}>Productos destacados:</h3>
         <ItemListConteiner products={products}/>
+        </div>
     </div>
   )
 }

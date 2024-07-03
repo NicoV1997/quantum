@@ -26,10 +26,10 @@ export const ItemListConteiner = ({products}) => {
         {products.map(product => {
 
             return (
-            <Card key={product.id} style={{ width: '18rem', margin: '10px'}}>
+            <Card key={product.id} style={{ width: '12rem', margin: '10px'}}>
             <Link to={`/item/${product.id}`}><Card.Img variant="top" src={product.thumbnail}/></Link>
             <Card.Body>
-              <Card.Title ><Link to={`/item/${product.id}`} style={{textDecoration: "none", color: "black"}}>{product.title}</Link></Card.Title>
+              <Card.Title ><Link to={`/item/${product.id}`} style={{textDecoration: "none", color: "black"}}>{product.name}</Link></Card.Title>
               <Card.Text>
                 {product.description}
               </Card.Text>

@@ -1,53 +1,46 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
 import { Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { ItemCount } from '../components/ItemCount/ItemCount';
-import { getProductsByCategory } from '../services/productsServices';
-import { useParams } from 'react-router-dom';
 import LoaderComponent from '../components/LoaderComponent/LoaderComponent';
-
+import { useProductsByCategory } from '../components/hooks/useProductsByCategory';
 
 const Category = () => {
-  const {category} = useParams();
-  const [products, setProducts] = useState([]); 
-    const [loading, setLoading] = useState(true); 
-  
-    useEffect(() => {
-      setTimeout(() => {
-        getProductsByCategory(category)
-          .then((res) => {
-            setProducts(res.data.products);
-            console.log(res.data.products);
-            setLoading(false); // Desactiva el estado de carga
-          })
-          .catch((err) => {
-            console.log(err);
-            setLoading(false); // Desactiva el estado de carga en caso de error
-          });
-      }, 2000); // Pausa de 2 segundos como se pide en el trabajo
-    }, [category]); // Dependencias vacías para ejecutar una vez al montar el componente
+  const { category } = useParams();
+  const { products, loading } = useProductsByCategory(category);
 
-  
-    if (loading) {
-      return <LoaderComponent /> // Necesito devolver un mensaje mientras tanto.
-    }
-    
-    return  <div className="itemListConteiner">
-        {products.map(product => {
-            return (
-            <Card key={product.id} style={{ width: '18rem', margin: '10px'}}>
-            <Link to={`/item/${product.id}`}><Card.Img variant="top" src={product.thumbnail}/></Link>
-            <Card.Body>
-              <Card.Title ><Link to={`/item/${product.id}`} style={{textDecoration: "none", color: "black"}}>{product.title}</Link></Card.Title>
-              <Card.Text>
-                {product.description}
-              </Card.Text>
-              <ItemCount stock={10} initial={1} onAdd={(count) => alert(`Se agregaron ${count} productos al carrito`)}/>
-            </Card.Body>
-            </Card>
-        )})}
+  if (loading) {
+    return <LoaderComponent />;
+  }
+
+  return (
+
+    <div>
+      <h1 style={{marginLeft: '1rem', marginTop: '1rem', fontSize: '2rem'}}>Estos son los productos de la categoría {category}:</h1>
+    <div className="itemListContainer" style={{display: 'flex'}}>
+      {products.map(product => (
+        <Card key={product.id} style={{ width: '18rem', margin: '10px' }}>
+          <Link to={`/item/${product.id}`}>
+            <Card.Img variant="top" src={product.thumbnail} />
+          </Link>
+          <Card.Body>
+            <Card.Title>
+              <Link to={`/item/${product.id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                {product.name}
+              </Link>
+            </Card.Title>
+            <Card.Text>{product.description}</Card.Text>
+            <Link to={`/item/${product.id}`}>
+                <button className="addButton">
+                <div className="text-agregar">Ir al detalle</div>
+                </button>
+              </Link>
+          </Card.Body>
+        </Card>
+      ))}
     </div>
-}
+    </div>
+  );
+};
 
-export default Category
+export default Category;
